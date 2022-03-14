@@ -1,0 +1,7 @@
+{
+    "*./js": [
+        "echo lintestaged ....",
+        "npx standard 'src/**' --fix",
+        "git add"
+    ]
+}
