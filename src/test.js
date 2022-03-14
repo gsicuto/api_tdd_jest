@@ -1,5 +1,5 @@
-function ola() {
-  return {a:1}
+function ola () {
+  return { a: 1 }
 }
 
 ola()
