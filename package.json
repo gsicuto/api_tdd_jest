@@ -8,6 +8,9 @@
     "prepare": "husky install",
     "test:staged": "npm test"
   },
+  "standard": {
+    "env": [ "jest" ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
