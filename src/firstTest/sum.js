@@ -1,3 +1,3 @@
 module.exports.sum = (num1, num2) => {
-  return num1 + 3
+  return num1 + 4
 }
