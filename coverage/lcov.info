@@ -1,0 +1,15 @@
+TN:
+SF:src/firstTest/sum.js
+FN:1,Object.<anonymous>.module.exports.sum
+FNF:1
+FNH:1
+FNDA:1,Object.<anonymous>.module.exports.sum
+DA:1,1
+DA:2,1
+DA:3,1
+LF:3
+LH:3
+BRDA:1,0,0,1
+BRF:1
+BRH:1
+end_of_record
