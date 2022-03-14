@@ -1,6 +1,6 @@
 {
-    "*.js": [
-        "npx standard  \"src/**/**/*.js\" --fix",
+    "**/*.js": [
+        "npx standard  \"src/**/*.js\" --no-error-on-unmatched-pattern --fix",
         "npm run test:staged",
         "git add"
     ]
