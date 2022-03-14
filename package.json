@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "devDependencies": {
     "git-commit-msg-linter": "^4.1.1",
     "husky": "^7.0.0",
+    "jest": "^27.5.1",
     "lint-staged": "^12.3.5",
     "standard": "^16.0.4"
   }
