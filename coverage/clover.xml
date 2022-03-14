@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1647266333246" clover="3.2.0">
-  <project timestamp="1647266333246" name="All files">
-    <metrics statements="1" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0" elements="3" coveredelements="0" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1"/>
-    <file name="anything.js" path="/Users/gabrielggsicuto/Documents/Ironhack/Extras/api_tdd_jest/src/anything.js">
-      <metrics statements="1" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-    </file>
+<coverage generated="1647295618894" clover="3.2.0">
+  <project timestamp="1647295618895" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>
