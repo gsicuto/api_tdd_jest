@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "prepare": "husky install"
+    "test": "jest --passWithNoTests",
+    "prepare": "husky install",
+    "test:staged": "npm test"
   },
   "keywords": [],
   "author": "",

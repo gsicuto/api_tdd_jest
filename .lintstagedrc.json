@@ -1,7 +1,7 @@
 {
     "*.js": [
-        "echo lintestaged ....",
-        "npx standard 'src/**' --fix",
+        "npx standard  \"src/**/*.js\" --no-error-on-unmatched-pattern --fix",
+        "npm run test:staged",
         "git add"
     ]
 }
