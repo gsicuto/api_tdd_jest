@@ -5,8 +5,8 @@ This repo is an step by step tutorial to start and project using TDD and configu
 ## Git aliases
 
 - Create folder and start git on it
-- `git config --local --edit` - show git config file for this directory in default editor (vim), you can change the file if you're comfortable with this interface
-- `git config --local core.editor "code"` - change the default editor do visual code
+- `git config --local --edit` - show git config file for this directory in default editor (vim), you can change the file here if you're comfortable with this interface
+- `git config --local core.editor "code"` - change the default editor to visual code
 - run again `git config --local --edit` - now the configuration file will be open in VSC
 
 - Create aliases for our git flow: 
