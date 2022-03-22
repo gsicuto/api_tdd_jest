@@ -1,18 +1,18 @@
 # Starting on tests
 
-This repo is an step by step tutorial to start and project using TDD and config our developer pipeline to ensure consistency and test coverage
+This repo is an step by step tutorial to start and project using TDD and configure our developer pipeline to ensure consistency and test coverage
 
 ## Git aliases
 
 - Create folder and start git on it
-- `git config --local --edit` - show git config file for this directory on core editor (vim), just for looking you can change here the file if you're comfortable
-- `git config --local core.editor "code"` - change de core editor do visual code
-- run again `git config --local --edit` - now the config file will be open on vsc
+- `git config --local --edit` - show git config file for this directory in default editor (vim), you can change the file if you're comfortable with this interface
+- `git config --local core.editor "code"` - change the default editor do visual code
+- run again `git config --local --edit` - now the configuration file will be open in VSC
 
 - Create aliases for our git flow: 
     -   'c' - add files to stage and commit; 
-    -   'l' show logs with custom format; 
-    -   's' show status from our staged files in shor way
+    -   'l' - show logs with custom format; 
+    -   's' - show status from our staged files in shor way
     ```
     (...)
     [alias]
@@ -23,14 +23,14 @@ This repo is an step by step tutorial to start and project using TDD and config 
 
 ## Commit linter hook
 
-We will use an linter to avoid doing commits out of pattern
-All of ours commits need to have an type definition:
+We will use a "linter" to avoid doing commits out of pattern
+All of ours commits need to have a type definition:
 - feat - adding new feature to our commit
-- chore - change build process, add libraries our change configurations on our pipeline
+- chore - change build process, add libraries or change configurations on our pipeline
 - test - includes changes or new tests on our code
-- refactor - changes on code that not changes te behavior
+- refactor - changes on code that don't changes the behavior
 
-The patern will be `<type>: <subject>` the first word on subject need to be an imperative verbe in lowercase
+The patern will be `<type>: <subject>` the first word on subject need to be an imperative verb in lowercase
 - examples:
     - `chore: add express framework`
     - `feat: create login route for user authentication`
@@ -38,7 +38,8 @@ The patern will be `<type>: <subject>` the first word on subject need to be an i
 
 check on [Convetional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to more details about commit pattern
 
-For ensure we allways make commits using that pattern we will install git-commit-msg-linter as developer dependency on our code this lib create an pre-commit hook that checks your commit subject to see if is following that pattern
+To ensure we always make commits using the same pattern we will install *git-commit-msg-linter* as a developer dependency in our project.
+This lib creates a pre-commit hook that checks your commit subject to see if is following that pattern
 
 ```sh
 npm i -D git-commit-msg-linter
