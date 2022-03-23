@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --passWithNoTests --watchAll",
-    "prepare": "husky install",
-    "test:staged": "jest --findRelatedTests"
+    "test:staged": "jest --findRelatedTests",
+    "prepare": "husky install"
   },
   "standard": {
     "env": [ "jest" ]

@@ -1,7 +1,7 @@
 const { sum } = require('./sum')
 
 describe('First Test', () => {
-  test('ensure 1 = 1', () => {
+  test('Ensure 1 + 1 is 2', () => {
     expect(sum(1, 1)).toBe(2)
   })
   test('Ensure sum fuction parse string values', () => {
