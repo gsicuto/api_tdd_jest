@@ -18,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/supertest": "^2.0.12",
     "git-commit-msg-linter": "^4.1.1",
     "husky": "^7.0.0",
     "jest": "^27.5.1",
