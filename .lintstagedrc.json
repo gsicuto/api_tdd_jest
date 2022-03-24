@@ -1,7 +1,7 @@
 {
     "**/*.js": [
-        "npx standard  \"src/**/*.js\" --no-error-on-unmatched-pattern --fix",
-        "npm run test:staged",
+        "yarn standard  \"src/**/*.js\" --no-error-on-unmatched-pattern --fix",
+        "yarn test:staged",
         "git add"
     ]
 }
