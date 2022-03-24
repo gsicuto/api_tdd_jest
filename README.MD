@@ -41,29 +41,29 @@ The patern will be `<type>: <subject>` the first word on subject need to be an i
 check on [Convetional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to more details about commit pattern
 
 To ensure we always make commits using the same pattern we will install *git-commit-msg-linter* as a developer dependency in our project.
-This lib creates a pre-commit hook that checks your commit subject to see if is following that pattern
+This lib creates a pre-commit hook that checks if the commit subject is following that pattern
 
 ```$
 npm i -D git-commit-msg-linter
 ```
 
-Don't forget to commit this chore to ensure an nice git commit stack.
+Don't forget to commit this chore to ensure a nice git commit stack.
 
 ## Husky Pre Commiter
 
-Just like Commit Msg Linter, we'll use another lib to create ours own git hooks, this will enable us to check if our code is ok with patterns we decide to use and every tests is passing before ours commits 
+Just like Commit Msg Linter, we'll use another lib to create our own git hooks, this will enable us to check if our code is following the patterns we decided to use and if it passes every test before we commit new code.
 
 `$ npx husky-init`
 
-This command will change our package.json including Husky as devDependency, adding an new script 'prepare' this is to run husky every time we start to work with this project and run npm i to first install of dependencies 
+This command will change our package.json including Husky as devDependency, adding the new script 'prepare'. This will run husky every time we start working with this project and we first execute `npm i` install all dependencies.
 
-You will notice an new folder named `.husky` and inside an file named `pre-commit` here e will configure what we want husky execute before every commit
+You will notice a new folder called `.husky` and inside, a file called `pre-commit`. Here we will configure what we want husky to execute before every commit.
 
-After that we need to run install to download husky
+After that we need to download and install husky.
 
 `$ npm i` 
 
-Just for check if its working, change the last line on `.husky/pre-commit` file
+To check if it's working, change the last line on `.husky/pre-commit` file
 
 ```$
     (...)
@@ -76,16 +76,16 @@ Now we need to commit this new chore, and you can see our message "Husky first r
 
 ## Standard JS
 
-Standard is an style guide, linter and formatter to our js files, you can check the standard rules in [StandardJS Rules](https://standardjs.com/rules.html)
+Standard is a style guide, linter and formatter to our js files, you can check the standard rules in [StandardJS Rules](https://standardjs.com/rules.html)
 
-Use standard is simple, first we need to install as Dev Dependency
+Using standard is simple, first we need to install it as a Dev Dependency
 
 `$ npm i -D standard`
 
-We already can made some tests with the standard 
-Create an js file on root of your Project **`standardTest.js`**
+We can already make some tests following standard rules.
+Create a js file called **`standardTest.js`** in your project root folder.
 
-include in this file:
+Include in this file:
 
 ```js
 function hello     ()   {
@@ -99,15 +99,15 @@ run
 
 `$ nxp standard standardTest.js`
 
-In your terminal wil list all the problems standard notice in your code
+Your terminal will list all the problems standard notices in your code
 
 if you run
 
 `$ npx standard standardTest.js --fix` 
 
-The fix option will correct all the things standard can correct but the fact our function is created but never used we will need to fix manually
+The fix option will correct all the problems standard can correct but the fact our function is created but never used we will need to fix it manually.
 
-We want in every commit we run standard to check style guide and fix whats is fixable, so now we need to change our pre-commit file on husky to run standard
+We want in every commit we run that standard checks the style guide and fix what is fixable, so now we need to change our pre-commit file on husky to run standard
 
 ```$
 #!/bin/sh
@@ -116,7 +116,7 @@ We want in every commit we run standard to check style guide and fix whats is fi
 npx standard --fix
 ```
 
-You can change your test file again, removing style patterns, including extra spaces and, after that, commit this chore to see standard in action
+:bulb: You can change your test file again, removing style patterns, including extra spaces and, after that, commit this chore to see standard in action.
 
 
 ## Lint Staged
