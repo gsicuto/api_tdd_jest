@@ -121,15 +121,15 @@ npx standard --fix
 
 ## Lint Staged
 
-In an real project we'll have an huge amount of files. 
-Image with, in every commit we made, automatically run test scripts for every single file, even the files we don't change.
-It's unecessary and we can solve that using an lib that will run scripts only on our staged files (in other words all the files that will be changed in our commit)
+In a real project we'll have a huge amount of files. 
+Imagine that in every commit we make, it automatically run test scripts for every single file, even the files we don't change.
+It's unecessary and we can solve that using a lib that will run scripts only on our staged files (in other words all the files that will be changed in our commit)
 
-For that we need to install lint-staged as Dev Dependency
+For that we need to install lint-staged as a Dev Dependency
 
 `$ npm i -D lint-staged`
 
-After that create a new file on our project root named **`.lintstagedrc.json`**
+After that create a new file in our project root folder called **`.lintstagedrc.json`**
 
 With the following content:
 
@@ -143,14 +143,13 @@ With the following content:
 }
 ```
 
-In this .json we configure lint-staged to every .js file run the following commands on array, first just an message to see lint staged running, after that will check and fix our js standard and if have changes we will add the file again if the changes standard apllies.
+In this .json we configure lint-staged to ensure every .js file runs the following commands in the array, first just a message saying that lint staged is running, then it will check and fix our js following standard rules and if changes were made we will add the files again.
 
-
-To check if its work wil can change your sum.js file and run 
+:bulb: To check if it worked, you can change your sum.js file and run 
 
 `$ npx lint-staged`
 
-Now we need to tell to husky execute lint-staged so change the file **`.husky/pre-commit`**
+Now we need to tell to husky execute lint-staged. We will change the file **`.husky/pre-commit`** again.
 
 ```$
 #!/bin/sh
@@ -159,15 +158,15 @@ Now we need to tell to husky execute lint-staged so change the file **`.husky/pr
 npx lint-staged
 ```
 
-After that you can change again the file and execute an new commit for this chore and check in your terminal lint-staged running 😊
+After that you can change sum.js again and execute a new commit for this chore and check in your terminal lint-staged running 😊
 
 
 ## Tech
 
-Libs We are using for this tutorial
+Libs we are using for this tutorial
 
 - [git-commit-msg-linter](https://www.npmjs.com/package/git-commit-msg-linter) - Check our commit messages
 - [husky](https://typicode.github.io/husky/#/) - add hooks to our commits
 - [jest](https://jestjs.io/) - Test framework
 - [lint-staged](https://www.npmjs.com/package/lint-staged) - run scripts on staged files
-- [standard](https://standardjs.com/) - linter and auto fix our js code
+- [standard](https://standardjs.com/) - linter and auto fixes our js code
