@@ -93,7 +93,7 @@ function hello     ()   {
 }
 ```
 
-Notice our file is out of pattern if a lot of spaces
+Notice our file is out of pattern with a lot of spaces
 
 run
 
