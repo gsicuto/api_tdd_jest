@@ -13,13 +13,14 @@ This repo is an step by step tutorial to start and project using TDD and configu
     -   'c' - add files to stage and commit; 
     -   'l' - show logs with custom format; 
     -   's' - show status from our staged files in shor way
-    ```
-    (...)
-    [alias]
-	    c = !git add . && git commit -m
-	    l = !git log --pretty='%C(blue)%h %C(white)%s %C(cyan)%an - %C(green)%cr'
-	    s = !git status -s
-    ```
+      
+```$
+(...)
+[alias]
+    c = !git add . && git commit -m
+    l = !git log --pretty='%C(blue)%h %C(white)%s %C(cyan)%an - %C(green)%cr'
+    s = !git status -s
+```
 
 ## Commit linter hook
 
@@ -42,7 +43,7 @@ check on [Convetional Commits](https://www.conventionalcommits.org/en/v1.0.0/) t
 To ensure we always make commits using the same pattern we will install *git-commit-msg-linter* as a developer dependency in our project.
 This lib creates a pre-commit hook that checks your commit subject to see if is following that pattern
 
-```sh
+```$
 npm i -D git-commit-msg-linter
 ```
 
@@ -64,7 +65,7 @@ After that we need to run install to download husky
 
 Just for check if its working, change the last line on `.husky/pre-commit` file
 
-```
+```$
     (...)
     echo "Husky first running"
 ```
@@ -73,11 +74,42 @@ Now we need to commit this new chore, and you can see our message "Husky first r
 
 👍🏼 Really cool!!!
 
-
 ## Standard JS
 
-We will use an linter for our js files, this linter wil check if our file 
+We will use an linter for our js files, this linter wil check if our file
 
+## Lint Staged
+
+In an real project we'll have an huge amount of files. 
+Image with, in every commit we made, automatically run test scripts for every single file, even the files we don't change.
+It's unecessary and we can solve that using an lib that will run scripts only on our staged files (in other words all the files that will be changed in our commit)
+
+For that we need to install lint-staged as Dev Dependency
+
+`$ npm i -D lint-staged`
+
+After that create a new file on our project root named **`.lintstagedrc.json`**
+
+With the following content:
+
+```json
+{
+    "*.js": [
+        "echo lint-staged running",
+        "npx standard --fix",
+        "git add"
+    ]
+}
+```
+
+In this .json we configure lint-staged to every .js file run the following commands on array, first just an message to see lint staged running, after that will check and fix our js standard and if have changes we will add the file again if the changes standard apllies.
+
+
+To check if its work wil can change your sum.js file and run 
+
+`$ npx lint-staged`
+
+After that you can change again the file and execute an new commit for this chore
 
 
 ## Tech
