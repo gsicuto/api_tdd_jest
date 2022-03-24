@@ -109,7 +109,16 @@ To check if its work wil can change your sum.js file and run
 
 `$ npx lint-staged`
 
-After that you can change again the file and execute an new commit for this chore
+Now we need to tell to husky execute lint-staged so change the file **`.husky/pre-commit`**
+
+```$
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
+```
+
+After that you can change again the file and execute an new commit for this chore and check in your terminal lint-staged running 😊
 
 
 ## Tech
