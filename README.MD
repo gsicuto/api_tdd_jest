@@ -76,7 +76,48 @@ Now we need to commit this new chore, and you can see our message "Husky first r
 
 ## Standard JS
 
-We will use an linter for our js files, this linter wil check if our file
+Standard is an style guide, linter and formatter to our js files, you can check the standard rules in [StandardJS Rules](https://standardjs.com/rules.html)
+
+Use standard is simple, first we need to install as Dev Dependency
+
+`$ npm i -D standard`
+
+We already can made some tests with the standard 
+Create an js file on root of your Project **`standardTest.js`**
+
+include in this file:
+
+```js
+function hello     ()   {
+              return {a:1}
+}
+```
+
+Notice our file is out of pattern if a lot of spaces
+
+run
+
+`$ nxp standard standardTest.js`
+
+In your terminal wil list all the problems standard notice in your code
+
+if you run
+
+`$ npx standard standardTest.js --fix` 
+
+The fix option will correct all the things standard can correct but the fact our function is created but never used we will need to fix manually
+
+We want in every commit we run standard to check style guide and fix whats is fixable, so now we need to change our pre-commit file on husky to run standard
+
+```$
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+    
+npx standard --fix
+```
+
+You can change your test file again, removing style patterns, including extra spaces and, after that, commit this chore to see standard in action
+
 
 ## Lint Staged
 
