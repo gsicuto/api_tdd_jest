@@ -5,9 +5,9 @@ This repo is an step by step tutorial to start and project using TDD and configu
 ## Git aliases
 
 - Create folder and start git on it
-- `git config --local --edit` - show git config file for this directory in default editor (vim), you can change the file if you're comfortable with this interface
-- `git config --local core.editor "code"` - change the default editor do visual code
-- run again `git config --local --edit` - now the configuration file will be open in VSC
+- `$ git config --local --edit` - show git config file for this directory in default editor (vim), you can change the file if you're comfortable with this interface
+- `$ git config --local core.editor "code"` - change the default editor do visual code
+- run again `$ git config --local --edit` - now the configuration file will be open in VSC
 
 - Create aliases for our git flow: 
     -   'c' - add files to stage and commit; 
@@ -25,6 +25,7 @@ This repo is an step by step tutorial to start and project using TDD and configu
 
 We will use a "linter" to avoid doing commits out of pattern
 All of ours commits need to have a type definition:
+
 - feat - adding new feature to our commit
 - chore - change build process, add libraries or change configurations on our pipeline
 - test - includes changes or new tests on our code
@@ -44,6 +45,40 @@ This lib creates a pre-commit hook that checks your commit subject to see if is 
 ```sh
 npm i -D git-commit-msg-linter
 ```
+
+Don't forget to commit this chore to ensure an nice git commit stack.
+
+## Husky Pre Commiter
+
+Just like Commit Msg Linter, we'll use another lib to create ours own git hooks, this will enable us to check if our code is ok with patterns we decide to use and every tests is passing before ours commits 
+
+`$ npx husky-init`
+
+This command will change our package.json including Husky as devDependency, adding an new script 'prepare' this is to run husky every time we start to work with this project and run npm i to first install of dependencies 
+
+You will notice an new folder named `.husky` and inside an file named `pre-commit` here e will configure what we want husky execute before every commit
+
+After that we need to run install to download husky
+
+`$ npm i` 
+
+Just for check if its working, change the last line on `.husky/pre-commit` file
+
+```
+    (...)
+    echo "Husky first running"
+```
+
+Now we need to commit this new chore, and you can see our message "Husky first running" on terminal
+
+👍🏼 Really cool!!!
+
+
+## Standard JS
+
+We will use an linter for our js files, this linter wil check if our file 
+
+
 
 ## Tech
 
