@@ -1,19 +1,19 @@
 # Starting on tests
 
-This repo is a step by step tutorial on how to start a project using TDD and set up our developer pipeline to ensure consistency and test coverage
+This repo is a step-by-step tutorial on how to start a project using TDD and set up our developer pipeline to ensure consistency and test coverage
 
 ## Git aliases
 
 - Create folder and start git in it
 - `git config --local --edit` - show git config file for this directory in default editor (vim), you can change the file here if you're comfortable with this interface
-- `git config --local core.editor "code"` - change the default editor to visual code
-- run again `git config --local --edit` - now the configuration file will be open in VSC
+- `git config --local core.editor "code"` - change the default editor to Visual Studio Code
+- run again `git config --local --edit` - now the configuration file will be opened in VSC
 
-- Create aliases for our git flow: 
-    -   'c' - add files to stage and commit; 
-    -   'l' - show logs with custom format; 
-    -   's' - show status from our staged files in shor way
-      
+- Create aliases for our git flow:
+  - 'c' - add files to stage and commit;
+  - 'l' - show logs with custom format;
+  - 's' - show status from our staged files in short way
+
 ```$
 (...)
 [alias]
@@ -24,23 +24,24 @@ This repo is a step by step tutorial on how to start a project using TDD and set
 
 ## Commit linter hook
 
-We will use a "linter" to avoid doing commits out of pattern
-All of ours commits need to have a type definition:
+We will use a "linter" to avoid making commits out of pattern.
+All our commits need to have a type definition:
 
 - feat - adding new feature to our commit
 - chore - change build process, add libraries or change configurations on our pipeline
 - test - includes changes or new tests on our code
-- refactor - changes on code that don't changes the behavior
+- refactor - changes on code that don't change the behavior
 
-The patern will be `<type>: <subject>` the first word on subject need to be an imperative verb in lowercase
+The patern will be `<type>: <subject>` the first word on subject has to be an imperative verb in lowercase
+
 - examples:
-    - `chore: add express framework`
-    - `feat: create login route for user authentication`
-    - `refactor: move createUser method to new file`
+  - `chore: add express framework`
+  - `feat: create login route for user authentication`
+  - `refactor: move createUser method to new file`
 
 check on [Convetional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to more details about commit pattern
 
-To ensure we always make commits using the same pattern we will install *git-commit-msg-linter* as a developer dependency in our project.
+To ensure we always make commits using the same pattern we will install _git-commit-msg-linter_ as a developer dependency in our project.
 This lib creates a pre-commit hook that checks if the commit subject is following that pattern
 
 ```$
@@ -55,13 +56,13 @@ Just like Commit Msg Linter, we'll use another lib to create our own git hooks, 
 
 `$ npx husky-init`
 
-This command will change our package.json including Husky as devDependency, adding the new script 'prepare'. This will run husky every time we start working with this project and we first execute `npm i` install all dependencies.
+This command will change our `package.json` including Husky as devDependency, adding the new script `'prepare'`. This will run husky every time we start working with this project and we first execute `npm i` to install all dependencies.
 
-You will notice a new folder called `.husky` and inside, a file called `pre-commit`. Here we will configure what we want husky to execute before every commit.
+You will notice a new folder called `.husky` and inside, a file called `pre-commit`. Here we will configure what we want Husky to execute before every commit.
 
-After that we need to download and install husky.
+After that we need to download and install Husky.
 
-`$ npm i` 
+`$ npm i`
 
 To check if it's working, change the last line on `.husky/pre-commit` file
 
@@ -78,7 +79,7 @@ Now we need to commit this new chore, and you can see our message "Husky first r
 
 Standard is a style guide, linter and formatter to our js files, you can check the standard rules in [StandardJS Rules](https://standardjs.com/rules.html)
 
-Using standard is simple, first we need to install it as a Dev Dependency
+Using Standard is simple, first we need to install it as a Dev Dependency
 
 `$ npm i -D standard`
 
@@ -88,8 +89,8 @@ Create a js file called **`standardTest.js`** in your project root folder.
 Include in this file:
 
 ```js
-function hello     ()   {
-              return {a:1}
+function hello() {
+  return { a: 1 };
 }
 ```
 
@@ -99,33 +100,32 @@ run
 
 `$ nxp standard standardTest.js`
 
-Your terminal will list all the problems standard notices in your code
+Your terminal will list all the problems Standard notices in your code
 
 if you run
 
-`$ npx standard standardTest.js --fix` 
+`$ npx standard standardTest.js --fix`
 
-The fix option will correct all the problems standard can correct but the fact our function is created but never used we will need to fix it manually.
+The fix option will correct all the problems Standard can correct but the fact our function is created but never used will need to be fixed manually.
 
-We want in every commit we run that standard checks the style guide and fix what is fixable, so now we need to change our pre-commit file on husky to run standard
+We want in every commit we run that Standard checks the style guide and fix what is fixable, so now we need to change our pre-commit file on Husky to run Standard
 
 ```$
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-    
+
 npx standard --fix
 ```
 
-:bulb: You can change your test file again, removing style patterns, including extra spaces and, after that, commit this chore to see standard in action.
-
+:bulb: You can change your test file again, removing style patterns, including extra spaces and, after that, commit this chore to see Standard in action.
 
 ## Lint Staged
 
-In a real project we'll have a huge amount of files. 
+In a real project we'll have a huge amount of files.
 Imagine that in every commit we make, it automatically run test scripts for every single file, even the files we don't change.
 It's unecessary and we can solve that using a lib that will run scripts only on our staged files (in other words all the files that will be changed in our commit)
 
-For that we need to install lint-staged as a Dev Dependency
+For that we need to install `lint-staged` as a Dev Dependency
 
 `$ npm i -D lint-staged`
 
@@ -135,21 +135,17 @@ With the following content:
 
 ```json
 {
-    "*.js": [
-        "echo lint-staged running",
-        "npx standard --fix",
-        "git add"
-    ]
+  "*.js": ["echo lint-staged running", "npx standard --fix", "git add"]
 }
 ```
 
-In this .json we configure lint-staged to ensure every .js file runs the following commands in the array, first just a message saying that lint staged is running, then it will check and fix our js following standard rules and if changes were made we will add the files again.
+In this `.json` we configure lint-staged to ensure every .js file runs the following commands in the array, first just a message saying that lint staged is running, then it will check and fix our js following Standard rules and if changes were made we will add the files again.
 
-:bulb: To check if it worked, you can change your sum.js file and run 
+:bulb: To check if it worked, you can change your sum.js file and run
 
 `$ npx lint-staged`
 
-Now we need to tell to husky execute lint-staged. We will change the file **`.husky/pre-commit`** again.
+Now we need to tell Husky to execute `lint-staged`. We will change the file **`.husky/pre-commit`** again.
 
 ```$
 #!/bin/sh
@@ -158,8 +154,7 @@ Now we need to tell to husky execute lint-staged. We will change the file **`.hu
 npx lint-staged
 ```
 
-After that you can change sum.js again and execute a new commit for this chore and check in your terminal lint-staged running 😊
-
+After that you can change `sum.js` again and execute a new commit for this chore and check in your terminal lint-staged running 😊
 
 ## Tech
 
